@@ -1,53 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crop Recommendation System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='crop_recomendation.css')}}"> 
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <h1>Crop Recommendation System</h1>
-
-    <p>
-        This tool helps farmers select the best crops based on soil nutrients and weather conditions.
-    </p>
-
 <div class="container">
-    <h2>Crop Recommendation System</h2>
+    <h2>🌾 Crop Recommendation System</h2>
 
     <form action="/predict" method="POST">
-        
-        <div class="input-field">
-            <input type="number" name="nitrogen" placeholder="Nitrogen" required>
+
+        <div class="input-group">
+            <input type="number" name="nitrogen" placeholder="Nitrogen (N)" required>
         </div>
 
-        <div class="input-field">
-            <input type="number" name="phosphorus" placeholder="Phosphorus" required>
+        <div class="input-group">
+            <input type="number" name="phosphorus" placeholder="Phosphorus (P)" required>
         </div>
 
-        <div class="input-field">
-            <input type="number" name="potassium" placeholder="Potassium" required>
+        <div class="input-group">
+            <input type="number" name="potassium" placeholder="Potassium (K)" required>
         </div>
 
-        <div class="input-field">
-            <input type="number" name="temperature" placeholder="Temperature" required>
+        <div class="input-group">
+            <input type="number" name="temperature" placeholder="Temperature (°C)" required>
         </div>
 
-        <div class="input-field">
-            <input type="number" name="humidity" placeholder="Humidity" required>
+        <div class="input-group">
+            <input type="number" name="humidity" placeholder="Humidity (%)" required>
         </div>
 
-        <div class="input-field">
-            <input type="number" name="ph" placeholder="pH Value" required>
+        <div class="input-group">
+            <input type="number" name="ph" placeholder="Soil pH" step="0.1" required>
         </div>
 
-        <div class="input-field">
-            <input type="number" name="rainfall" placeholder="Rainfall" required>
+        <div class="input-group">
+            <input type="number" name="rainfall" placeholder="Rainfall (mm)" required>
         </div>
 
         <button type="submit">Predict Crop</button>
+
     </form>
 
     {% if prediction_text %}
@@ -55,6 +48,7 @@
             {{ prediction_text }}
         </div>
     {% endif %}
+
 </div>
 
 </body>
