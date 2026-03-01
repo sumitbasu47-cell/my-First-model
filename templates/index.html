@@ -14,34 +14,48 @@
         This tool helps farmers select the best crops based on soil nutrients and weather conditions.
     </p>
 
-    <form action="/predict" method="post">
+<div class="container">
+    <h2>Crop Recommendation System</h2>
 
-        <label for="nitrogen">Nitrogen:</label>
-        <input type="number" name="nitrogen" id="nitrogen" required><br><br>
+    <form action="/predict" method="POST">
+        
+        <div class="input-field">
+            <input type="number" name="nitrogen" placeholder="Nitrogen" required>
+        </div>
 
-        <label for="phosphorus">Phosphorus:</label>
-        <input type="number" name="phosphorus" id="phosphorus" required><br><br>
+        <div class="input-field">
+            <input type="number" name="phosphorus" placeholder="Phosphorus" required>
+        </div>
 
-        <label for="potassium">Potassium:</label>
-        <input type="number" name="potassium" id="potassium" required><br><br>
+        <div class="input-field">
+            <input type="number" name="potassium" placeholder="Potassium" required>
+        </div>
 
-        <label for="temperature">Temperature (°C):</label>
-        <input type="number" step="any" name="temperature" id="temperature" required><br><br>
+        <div class="input-field">
+            <input type="number" name="temperature" placeholder="Temperature" required>
+        </div>
 
-        <label for="humidity">Humidity (%):</label>
-        <input type="number" step="any" name="humidity" id="humidity" required><br><br>
+        <div class="input-field">
+            <input type="number" name="humidity" placeholder="Humidity" required>
+        </div>
 
-        <label for="ph">pH Level:</label>
-        <input type="number" step="any" name="ph" id="ph" required><br><br>
+        <div class="input-field">
+            <input type="number" name="ph" placeholder="pH Value" required>
+        </div>
 
-        <label for="rainfall">Rainfall (mm):</label>
-        <input type="number" step="any" name="rainfall" id="rainfall" required><br><br>
+        <div class="input-field">
+            <input type="number" name="rainfall" placeholder="Rainfall" required>
+        </div>
 
-        <input type="submit" value="Get Recommendation">
-
+        <button type="submit">Predict Crop</button>
     </form>
 
-    <h2>{{ prediction_text }}</h2>
+    {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</div>
 
 </body>
 </html>
